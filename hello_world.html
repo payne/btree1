@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>btree1</title>
+        <!--Dependencies: -->
+        <link href="./node_modules/backbone-tree-view/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="./node_modules/backbone-tree-view/node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="./node_modules/backbone-tree-view/node_modules/underscore/underscore-min.js"></script>
+        <script src="./node_modules/backbone-tree-view/node_modules/backbone/backbone.js"></script>
+        <script src="./node_modules/backbone-tree-view/node_modules/backbone-tree-model/src/backbone.treemodel.js"></script>
+
+        <!--Backbone-tree-view: -->
+        <link href="./node_modules/backbone-tree-view/css/bootstrap-theme.min.css" rel="stylesheet">
+        <script src="./node_modules/backbone-tree-view/lib/backbone-tree-view.js"></script>
+</head>
+<body>
+	<div id="tree"></div>
+	<script>
+	$( document ).ready(function() {
+    console.log( "ready!" );
+	var data = [
+	    {
+	        id:7,
+	        title:'No children'
+	    },
+	    {
+	        id:1,
+	        title:'Australia',
+	        open : false,
+	        nodes: [
+	            {
+	                id: 2,
+	                title : 'Sydney'
+	            }
+	        ]
+	    },
+	];	
+	
+   var tree = new BackTree.Tree({
+	    collection : data
+	});	
+	
+	$('#tree').append(tree.render().$el);
+});
+</script>
+</body>
